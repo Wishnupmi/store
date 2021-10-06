@@ -1,0 +1,78 @@
+<template>
+    <div class="page" data-name="catalog">
+      <div class="navbar">
+        <div class="navbar-bg"></div>
+        <div class="navbar-inner sliding">
+          <div class="title">Catalog</div>
+        </div>
+      </div>
+      <div class="page-content">
+          <!-- <div class="block">
+            <div class="data-table">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Username</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tampil"></tbody>
+                </table>
+            </div>
+          </div> -->
+          <div class="list links-list">
+            <ul>
+              ${products.value.map((product) => $h`
+                <li><a href="/product/${product.id}/">${product.title}</a></li>
+              `)}
+            </ul>
+          </div>
+
+          <!-- <div class="block">
+            <button class="button button-fill" @click=${addProduct}>Add Product</Button>
+          </div> -->
+      
+      </div>
+    </div>
+  </template>
+  <script>
+//     export default (props,  { $f7, $update}) => {
+      
+//       const addProduct = () => {
+//         $f7.request.json('http://localhost/formlogin/login.php')
+//   .then(function (res) {
+//       var jlh = res.data.length;
+//       var i = "";
+//       var buatTabel = "";
+//       for(i=0;i<jlh;i++) {
+//           console.log(res.data[i].username);
+//           buatTabel+="<tr>"+
+//             "<td>" + res.data[i].username + "</td>"+
+//             "</tr>";
+//       }
+// //     $$("#tampil").html("<tr><td>df</td></tr>");
+// //   });
+//       }
+  
+//       return $render;
+//     }
+
+
+    export default (props, { $store }) => {
+    const products = $store.getters.products;
+
+    const addProduct = () => {
+    //   $store.dispatch('addProduct', {
+    //     id: '4',
+    //     title: 'Apple iPhone 12',
+    //     description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nisi tempora similique reiciendis, error nesciunt vero, blanditiis pariatur dolor, minima sed sapiente rerum, dolorem corrupti hic modi praesentium unde saepe perspiciatis.'
+    //   });
+
+    
+    }
+
+    return $render;
+  }
+
+
+  
+  </script>
