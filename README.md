@@ -1,6 +1,6 @@
 # My App
 
-![alt text](https://github.com/Wishnupmi/formlogin/blob/main/upload_image.png)
+![alt text](https://github.com/Wishnupmi/store/blob/main/Master_detail.png)
 
 ## Framework7 CLI Options
 
