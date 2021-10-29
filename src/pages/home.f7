@@ -1,97 +1,209 @@
 <template>
-  <div class="page" data-name="home">
-    <!-- Top Navbar -->
-    <div class="navbar navbar-large">
-      <div class="navbar-bg"></div>
-      <div class="navbar-inner">
-        <div class="left">
-          <a href="#" class="link icon-only panel-open" data-panel="left">
-            <i class="icon f7-icons if-not-md">menu</i>
-            <i class="icon material-icons if-md">menu</i>
-          </a>
-        </div>
-        <div class="title sliding">My App</div>
-        <div class="right">
-          <a href="#" class="link icon-only panel-open" data-panel="right">
-            <i class="icon f7-icons if-not-md">menu</i>
-            <i class="icon material-icons if-md">menu</i>
-          </a>
-        </div>
-        <div class="title-large">
-          <div class="title-large-text">My App</div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Scrollable page content-->
-    <div class="page-content">
-      <div class="block block-strong">
-        <p>This is an example of tabs-layout application. The main point of such tabbed layout is that each tab contains independent view with its own routing and navigation.</p>
-
-        <p>Each tab/view may have different layout, different navbar type (dynamic, fixed or static) or without navbar like this tab.</p>
-      </div>
-      <div class="block-title">Navigation</div>
-      <div class="list">
-        <ul>
-          <li>
-            <a href="/about/" class="item-content item-link">
-              <div class="item-inner">
-                <div class="item-title">About</div>
-              </div>
-            </a>
-          </li>
-          <li>
-            <a href="/form/" class="item-content item-link">
-              <div class="item-inner">
-                <div class="item-title">Form</div>
-              </div>
-            </a>
-          </li>
-        </ul>
-      </div>
-
-      <div class="block-title">Modals</div>
-      <div class="block block-strong">
-        <div class="row">
-          <div class="col-50">
-            <a href="#" class="button button-raised button-fill popup-open" data-popup="#my-popup">Popup</a>
-          </div>
-          <div class="col-50">
-            <a href="#" class="button button-raised button-fill login-screen-open" data-login-screen="#my-login-screen">Login Screen</a>
-          </div>
-        </div>
-      </div>
-
-      <div class="block-title">Panels</div>
-      <div class="block block-strong">
-        <div class="row">
-          <div class="col-50">
-            <a href="#" class="button button-raised button-fill panel-open" data-panel="left">Left Panel</a>
-          </div>
-          <div class="col-50">
-            <a href="#" class="button button-raised button-fill panel-open" data-panel="right">Right Panel</a>
-          </div>
-        </div>
-      </div>
-
-      <div class="list links-list">
-        <ul>
-          <li>
-            <a href="/dynamic-route/blog/45/post/125/?foo=bar#about">Dynamic (Component) Route</a>
-          </li>
-          <li>
-            <a href="/load-something-that-doesnt-exist/">Default Route (404)</a>
-          </li>
-          <li>
-            <a href="/request-and-load/user/123456/">Request Data & Load</a>
-          </li>
-        </ul>
-      </div>
-    </div>
-  </div>
+	<div class="page">
+		<div class="navbar">
+			<div class="navbar-bg"></div>
+			<div class="navbar-inner sliding">
+				<div class="title">Bahasa Pemrograman</div>
+				<div class="subnavbar">
+					<form data-search-container=".virtual-list" data-search-item="li" data-search-in=".item-title" class="searchbar searchbar-init">
+						<div class="searchbar-inner">
+							<div class="searchbar-input-wrap">
+								<input type="search" placeholder="Cari Program"/>
+								<i class="searchbar-icon"></i>
+								<span class="input-clear-button"></span>
+							</div>
+							<span class="searchbar-disable-button if-not-aurora">Batal</span>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+		<div class="fab fab-right-bottom color-blue">
+			<a href="/settings/">
+				<i class="icon f7-icons if-not-md">plus</i>
+				<i class="icon f7-icons if-not-md">plus</i>
+				<i class="icon material-icons md-only">add</i>
+				<i class="icon material-icons md-only">add</i>
+			</a>
+		</div>
+		<div class="searchbar-backdrop"></div>
+		<div class="page-content">
+			<div class="list simple-list searchbar-not-found">
+				<ul>
+					<li>Data tidak ditemukan</li>
+				</ul>
+			</div>
+			<div class="list virtual-list media-list searchbar-found"></div>
+		</div>
+	</div>
 </template>
 <script>
-export default () => {
+export default (props, { $f7, $el, $theme, $on }) => {
+
+
+
+
+
+
+
+  // var items = [];
+	// 			var dataJSON = new Array();
+	// 			$f7.request.get('http://localhost:3030/api/user/', function (data,status) {
+	// 				dataJSON = JSON.parse(data);
+	// 				var tampil = dataJSON.response;
+	// 				console.log(tampil.length);
+
+  //         for(var i = 0; i < tampil.length; i++) {
+	// 					var semuadata = tampil[i];
+	// 					var nama = semuadata.nama;
+	// 					var Id = semuadata.Id;
+  //           alert(nama);
+	// 					items.push({
+	// 						title: nama,
+	// 						subtitle: "Info Selengkapnya",
+	// 						Id: Id
+	// 					});
+	// 				}
+
+  //         var virtualList = $f7.virtualList.create({
+	// 					el: '.virtual-list',
+	// 					items: items,
+	// 					searchAll: function (query, items) {
+	// 						var found = [];
+	// 						for (var i = 0; i < items.length; i++) {
+	// 							if (items[i].title.toLowerCase().indexOf(query.toLowerCase()) >= 0 || query.trim() === '') found.push(i);
+	// 						}
+	// 						return found;
+	// 					},
+	// 					itemTemplate:
+	// 					'<li class="swipeout deleted-callback" data-id="${Id}">' +
+	// 					'<div class="swipeout-content">' +
+	// 					'<a href="/read/{{id}}/" class="item-link item-content">' +
+	// 					'<div class="item-inner">' +
+	// 					'<div class="item-title-row">' +
+	// 					'<div class="item-title" id="nama" name="nama">${title}</div>' +
+	// 					'</div>' +
+	// 					'<div class="item-subtitle">{{subtitle}}</div>' +
+	// 					'</div>' +
+	// 					'</a>' +
+	// 					'</div>' +
+	// 					'<div class="swipeout-actions-right">' +
+	// 					'<a href="/read/{{id}}/" class="color-blue">Read</a>' +
+	// 					'<a href="/update/{{id}}/" class="color-orange">Update</a>' +
+	// 					'<a href="#" data-confirm="Apakah Anda yakin ingin menghapus {{title}} ?" class="color-red swipeout-delete hapus-data">Delete</a>' +
+	// 					'</div>' +
+	// 					'</li>',
+	// 					height: app.theme === 'ios' ? 63 : (app.theme === 'md' ? 73 : 46),
+	// 				});
+
+
+	// 					});
+
+
+
+
+
+
+
+        //     let items = [];
+				// let dataJSON = new Array();
+				// $f7.request.get('http://localhost:3030/api/user/', function (data,status) {
+				// 	dataJSON = JSON.parse(data);
+				// 	let tampil = dataJSON.response;
+				// 	console.log(tampil.length);
+        //   for(let i = 0; i < tampil.length; i++) {
+				// 		let semuadata = tampil[i];
+				// 		let nama = semuadata.nama;
+				// 		let Id = semuadata.Id;
+         
+				// 		items.push({
+				// 			title: nama,
+				// 			subtitle: "Info Selengkapnya",
+				// 			Id: Id
+				// 		});
+				// 	}
+
+        
+
+  let items = [];
+  let dataJSON = new Array();
+  $f7.request.get('http://localhost:3030/api/user/', function (data,status) {
+    dataJSON = JSON.parse(data);
+					let tampil = dataJSON.response;
+					// console.log(tampil.length);
+          for (let i = 0; i < tampil.length; i++) {
+
+            var semuadata = tampil[i];
+						var nama = semuadata.nama;
+						var Id = semuadata.Id;
+
+      items.push({
+        title: 'Nama : ' + nama,
+        subtitle: 'Info Selengkapnya',
+        Id: Id
+      });
+    }
+  
+   
+    // $on('pageInit', () => {
+      const virtualList = $f7.virtualList.create({
+        // List Element
+        el: $el.value.find('.virtual-list'),
+        // Pass array with items
+        items,
+        // Custom search function for searchbar
+        searchAll: function (query, items) {
+          var found = [];
+          for (var i = 0; i < items.length; i++) {
+            if (items[i].title.toLowerCase().indexOf(query.toLowerCase()) >= 0 || query.trim() === '') found.push(i);
+          }
+          return found; //return array with mathced indexes
+        },
+        // List item render
+        renderItem(item) {
+          return `
+          <li class="swipeout deleted-callback" data-id="${item.Id}">
+						<div class="swipeout-content">
+						<a href="/baca/${item.Id}/" class="item-link item-content">
+						<div class="item-inner">
+						<div class="item-title-row">
+						<div class="item-title" id="nama" name="nama">${item.title}</div>
+						</div>
+						<div class="item-subtitle">${item.subtitle}</div>
+						</div>
+						</a>
+						</div>
+						<div class="swipeout-actions-right">
+						<a href="/read/{{id}}/" class="color-blue">Read</a>
+						<a href="/update/{{id}}/" class="color-orange">Update</a>
+						<a href="#" data-confirm="Apakah Anda yakin ingin menghapus ${item.title} ?" class="color-red swipeout-delete hapus-data">Delete</a>
+						</div>
+						</li>`;
+
+          // <li>
+          //   <a href="#" class="item-link item-content">
+          //     <div class="item-inner">
+          //       <div class="item-title-row">
+          //         <div class="item-title">${item.title}</div>
+          //       </div>
+          //       <div class="item-subtitle">${item.subtitle}</div>
+          //     </div>
+          //   </a>
+          // </li>`;
+        },
+        // Item height
+        height: $theme.ios ? 63 : ($theme.md ? 73 : 77),
+      });
+    // });
+
+  });
+	
+
+            
+
+
+
   return $render;
 }
 </script>
+

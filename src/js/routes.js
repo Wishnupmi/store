@@ -4,7 +4,9 @@ import AboutPage from '../pages/about.f7';
 import FormPage from '../pages/form.f7';
 import CatalogPage from '../pages/katalog.f7';
 import ProductPage from '../pages/product.f7';
+import ReadPage from '../pages/baca.f7';
 import SettingsPage from '../pages/settings.f7';
+
 
 import DynamicRoutePage from '../pages/dynamic-route.f7';
 import RequestAndLoad from '../pages/request-and-load.f7';
@@ -30,6 +32,11 @@ var routes = [
   {
     path: '/product/:id/',
     component: ProductPage,
+  },
+  {
+    path: '/baca/:Id/',
+    component: ReadPage,
+    
   },
   {
     path: '/settings/',
