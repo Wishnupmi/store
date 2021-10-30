@@ -147,6 +147,6 @@ Love Framework7? Support project by donating or pledging on:
 C:\AppServ\www\php_restapi_nodejs>node app.js
 
 * Untuk aplikasinya download dan jalankan dengan perintah berikut ini :
-C:\Users\wishn\downloadstore>git clone https://github.com/Wishnupmi/store.git
-C:\Users\wishn\downloadstore\store>npm install
-C:\Users\wishn\downloadstore\store>npm start
+- C:\Users\wishn\downloadstore>git clone https://github.com/Wishnupmi/store.git
+- C:\Users\wishn\downloadstore\store>npm install
+- C:\Users\wishn\downloadstore\store>npm start
