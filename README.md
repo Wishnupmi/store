@@ -146,7 +146,7 @@ Love Framework7? Support project by donating or pledging on:
 * Copy php_restapi_nodejs kedalam webserver lokal kita, lalu jalankan dengan menggunakan node js seperti dibawah ini :
 C:\AppServ\www\php_restapi_nodejs>node app.js
 
-* Untuk aplikasinya download dan jalankan dengan perintah dibawah ini :
+* Untuk aplikasinya dapat di download dan jalankan dengan perintah dibawah ini :
 1. C:\Users\wishn\downloadstore>git clone https://github.com/Wishnupmi/store.git
 2. C:\Users\wishn\downloadstore\store>npm install
 3. C:\Users\wishn\downloadstore\store>npm start
