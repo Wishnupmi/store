@@ -123,10 +123,14 @@ export default (props, { $f7, $el, $theme, $on }) => {
 				// 		});
 				// 	}
 
-        
+				      
 
   let items = [];
   let dataJSON = new Array();
+
+  
+	
+  
   $f7.request.get('http://localhost:3030/api/user/', function (data,status) {
     dataJSON = JSON.parse(data);
 					let tampil = dataJSON.response;
@@ -136,16 +140,17 @@ export default (props, { $f7, $el, $theme, $on }) => {
             var semuadata = tampil[i];
 						var nama = semuadata.nama;
 						var Id = semuadata.Id;
-
+						
       items.push({
         title: 'Nama : ' + nama,
         subtitle: 'Info Selengkapnya',
         Id: Id
       });
+	
     }
-  
-   
-    // $on('pageInit', () => {
+// });
+
+	// $on('pageInit', () => { 
       const virtualList = $f7.virtualList.create({
         // List Element
         el: $el.value.find('.virtual-list'),
@@ -194,10 +199,10 @@ export default (props, { $f7, $el, $theme, $on }) => {
         // Item height
         height: $theme.ios ? 63 : ($theme.md ? 73 : 77),
       });
-    // });
+	
 
   });
-	
+
 
             
 

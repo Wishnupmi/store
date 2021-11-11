@@ -6,6 +6,7 @@ import '../css/framework7-custom.less';
 
 // Import Icons and App Custom Styles
 import '../css/icons.css';
+import FontAwsome from '../css/all.css';
 import '../css/app.less';
 
 

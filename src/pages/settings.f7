@@ -3,11 +3,102 @@
   <div class="navbar">
     <div class="navbar-bg"></div>
     <div class="navbar-inner sliding">
-      <div class="title">Settings</div>
+      <div class="title">Shopping Cart</div>
     </div>
   </div>
   <div class="page-content">
-    <div class="block-title">Form Example</div>
+
+
+
+
+
+    
+
+      <div class="block-title">Indeterminate State</div>
+      <div class="list">
+        <ul>
+          <li>
+            <label class="item-checkbox item-content">
+              <input
+                type="checkbox"
+                name="demo-checkbox"
+                checked=${movies.length === 3}
+                indeterminate=${movies.length === 1}
+                @change=${onMoviesChange}
+              />
+              <i class="icon icon-checkbox"></i>
+              <div class="item-inner">
+                <div class="item-title">Options</div>
+              </div>
+            </label>
+            <ul>
+              <li>
+                <label class="item-checkbox item-content">
+                  <input
+                    type="checkbox"
+                    name="demo-checkbox"
+                    value="Sepatu"
+                    checked=${movies.indexOf('Sepatu') >= 0}
+                    @change=${onMovieChange}
+                  />
+                  <i class="icon icon-checkbox"></i>
+                  <div class="item-inner">
+                    <div class="item-title">Sepatu</div>
+                  </div>
+                </label>
+              </li>
+              <li>
+                <label class="item-checkbox item-content">
+                  <input
+                    type="checkbox"
+                    name="demo-checkbox"
+                    value="Tas"
+                    checked=${movies.indexOf('Tas') >= 0}
+                    @change=${onMovieChange}
+                  />
+                  <i class="icon icon-checkbox"></i>
+                  <div class="item-inner">
+                    <div class="item-title">Tas</div>
+                  </div>
+                </label>
+              </li>
+              <li>
+                <label class="item-checkbox item-content">
+                  <input
+                    type="checkbox"
+                    name="demo-checkbox"
+                    value="Pensil"
+                    checked=${movies.indexOf('Pensil') >= 0}
+                    @change=${onMovieChange}
+                  />
+                  <i class="icon icon-checkbox"></i>
+                  <div class="item-inner">
+                    <div class="item-title">Pensil</div>
+                  </div>
+                </label>
+              </li>
+
+            </ul>
+          </li>
+        </ul>
+      </div>
+
+      <div id="tes"></div>
+
+
+      <!-- <div class="block block-strong" style="margin-top:-30px;">
+        <p><a href="#" id="buttonid" class="button button-fill color-red" @click=${onMovieChange}>Save</a></p>
+      </div>  -->
+      <div class="block block-strong" style="margin-top:-30px;">
+        <p><a href="#" id="buttonid" class="button button-fill color-red" @click=${onMovieShow}>Bayar</a></p>
+      </div> 
+
+
+
+
+
+      
+    <!-- <div class="block-title">Form Example</div>
     <div class="list no-hairlines-md">
       <ul>
         <li>
@@ -248,12 +339,69 @@
           </label>
         </li>
       </ul>
-    </div>
+    </div> -->
   </div>
 </div>
 </template>
 <script>
-export default () => {
-  return $render;
-};
+// export default () => {
+//   return $render;
+// };
+
+export default (props, { $, $f7, $update, $on }) => {
+    let movies = ['Sepatu','Tas','Pensil'];
+    
+    const save = (e) => {
+        alert("tes");
+    }
+
+    const onMovieChange = (e) => {
+      var value = e.target.value;
+      if (e.target.checked) {
+        movies.push(value);
+      } else {
+        movies.splice(movies.indexOf(value), 1);
+      }
+      $update();
+      
+    }
+    const onMovieShow = (e) => {
+      if (movies.length===0) {
+        // alert("ANDA BELUM MEMILIH");
+        $f7.dialog.alert("ANDA BELUM MEMILIH");
+      } else if (movies.length>0) {
+        // alert(movies);
+        // $f7.dialog.alert(movies);
+        var instruktur = ["Andi", "Bani", "David", "Eno", "Edd", "Gary", "Gobel"];
+        var implode = movies.join("-");
+// alert(implode);
+// $f7.dialog.alert(implode);
+$f7.dialog.alert(JSON.stringify(movies));
+
+        for (var i = 0; i < movies.length; i++) {
+          // $f7.dialog.alert(movies[i]);
+          // var m = movies[i] +"<br>";
+// console.log(movies[i]);
+// var content = .html(movies[i]);
+}
+      // console.log(content);  
+      // alert(document.getElementById("tes").innerHTML);
+      }
+      // console.log(movies.length);
+
+    }
+    const onMoviesChange = (e) => {
+      
+      if (movies.length === 2 || movies.length === 1 || movies.length === 0) {
+        movies = ['Sepatu', 'Tas','Pensil'];
+        
+      } else if (movies.length === 3) {
+        movies = [];
+      }
+      $update();
+
+    }
+
+    return $render;
+  };
 </script>

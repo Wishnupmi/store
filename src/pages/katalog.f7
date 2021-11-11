@@ -1,12 +1,145 @@
 <template>
     <div class="page" data-name="catalog">
-      <div class="navbar">
-        <div class="navbar-bg"></div>
-        <div class="navbar-inner sliding">
-          <div class="title">Pionir IT</div>
+
+      
+      <div class="navbar navbar-transparent">
+        <div class="navbar-bg" style="height: 50px;"></div>
+         <div class="navbar-inner sliding">
+
+
+
+
+
+           <!-- Left -->
+      <div class="left sliding">
+        <a href="#" class="link icon-only panel-open" data-panel="left">
+          <i class="icon f7-icons ios-only">menu</i>
+          <i class="icon material-icons md-only">menu</i>
+        </a>
+      </div>
+      <!-- Title -->
+      <div class="title sliding">Search Expandable</div>
+      <!-- Right -->
+      <div class="right">
+        <a href="#" class="link icon-only">
+          <i class="icon f7-icons ios-only">bell</i>
+          <i class="icon material-icons md-only">notifications</i>
+      </a>
+        <!-- Link to enable searchbar -->
+        <a class="link icon-only searchbar-enable" data-searchbar=".searchbar-clinicas">
+          <i class="icon f7-icons ios-only">search_strong</i>
+          <i class="icon material-icons md-only">search</i>
+        </a>
+      </div>
+     
+     <!-- Searchbar is a direct child of "navbar-inner" -->
+      <form class="searchbar searchbar-expandable searchbar-init searchbar-clinicas"
+      data-search-container=".virtual-listClinicas" data-search-item="li" data-search-in=".item-title">
+        <div class="searchbar-inner">
+          <div class="searchbar-input-wrap">
+            <input type="search" placeholder="Search"/>
+            <i class="searchbar-icon"></i>
+            <span class="input-clear-button"></span>
+          </div>
+          <span class="searchbar-disable-button">Cancelar</span>
         </div>
+      </form>
+
+
+
+
+
+       <!--   Pionir -->
+          <!-- <div class="subnavbar"> -->
+            <!-- Searchbar inside of Subnavbar -->
+            
+            <!-- <div class="left">
+              <a href="#" class="link icon-only panel-open" data-panel="left">
+                  <i class="icon f7-icons ios-only">menu</i>
+                  <i class="icon material-icons md-only">menu</i>
+              </a>
+          </div>
+          <div class="title">Example Title</div>
+          <div class="right">
+              <a href="#" class="link icon-only">
+                  <i class="icon f7-icons ios-only">bell</i>
+                  <i class="icon material-icons md-only">notifications</i>
+              </a>
+              
+              <a class="link icon-only searchbar-enable" data-searchbar=".searchbar">
+                  <i class="icon f7-icons ios-only">search_strong</i>
+                  <i class="icon material-icons md-only">search</i>
+              </a>
+          </div>
+
+         
+ 
+          <form class="searchbar searchbar-expandable searchbar-init searchbar" data-search-container=".list">
+              <div class="searchbar-inner">
+                  <div class="searchbar-input-wrap">
+                      <input type="search" placeholder="Search components"/>
+                      <i class="searchbar-icon"></i>
+                      <span class="input-clear-button"></span>
+                  </div>
+              </div>
+          </form> -->
+
+            <!-- <form class="searchbar searchbar-init" data-search-container=".search-here">
+              <div class="searchbar-inner ios2">
+                <div class="searchbar-input-wrap">
+                  <input type="search" placeholder="Search" />
+                  <i class="searchbar-icon"></i>
+                  <span class="input-clear-button"></span>
+                </div>
+                <span class="searchbar-disable-button if-not-aurora">Cancel</span>
+              </div>
+            </form> -->
+
+            
+
+
+          </div>
+        <!-- </div> -->
       </div>
       <div class="page-content">
+        <img src="https://dingyue.ws.126.net/2021/0616/4ef3c69fj00qur52i000oc000fe008mc.jpg" width="100%;" height="70%" style="margin-top:-60px;border-radius: 0%;" />
+        <!-- Searchbar backdrop layer -->
+        <div class="searchbar-backdrop"></div>
+        <!-- page content here -->
+
+
+        <!-- <form class="searchbar searchbar-init" data-search-container=".search-here">
+          <div class="searchbar-inner">
+            <div class="searchbar-input-wrap">
+              <input type="search" placeholder="Search" />
+              <i class="searchbar-icon"></i>
+              <span class="input-clear-button"></span>
+            </div>
+            <span class="searchbar-disable-button if-not-aurora">Cancel</span>
+          </div>
+        </form> -->
+        
+
+        
+      <!-- </div>
+
+
+
+
+
+
+      
+     
+
+
+
+
+      
+  
+
+
+
+      <div class="page-content"> -->
           <!-- <div class="block">
             <div class="data-table">
                 <table>
@@ -57,7 +190,7 @@
 //     }
 
 
-    export default (props, { $store }) => {
+    export default (props, { $store, $f7 }) => {
     const products = $store.getters.products;
 
     const addProduct = () => {
@@ -69,7 +202,14 @@
 
     
     }
-
+    var searchbar = $f7.searchbar.create({
+  el: '.searchbar',
+  on: {
+    enable: function () {
+      console.log('Searchbar enabled')
+    }
+  }
+})
     return $render;
   }
 
