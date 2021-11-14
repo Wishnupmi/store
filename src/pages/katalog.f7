@@ -155,7 +155,7 @@
           <div class="list links-list">
             <ul>
               ${products.value.map((product) => $h`
-                <li><a href="/product/${product.id}/">${product.title}</a></li>
+                <li><a href="/product/${product.Id}/">${product.nama}</a></li>
               `)}
             </ul>
           </div>

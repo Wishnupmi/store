@@ -82,6 +82,20 @@
             </li>
     
     
+            <li class="align-top">
+              <div class="item-content item-input">
+                <div class="item-inner">
+                  <div class="block-title">With Placeholder</div>
+                  <div class="text-editor text-editor-init" data-placeholder="Enter text...">
+                    <div class="text-editor-content" contenteditable></div>
+                  </div>
+                </div>
+              </div>
+            </li>
+            
+
+
+
     
             </ul>
           </form>
@@ -93,9 +107,9 @@
               <p><a href="#" id="buttonid" class="button button-fill color-red" @click=${selectimage}>Upload</a></p>
           </div> 
     
-            <!-- <div class="block block-strong">
+            <div class="block block-strong">
               <p><a href="#" class="button button-fill color-green" @click=${save}>Save</a></p>
-          </div>    -->
+          </div>   
     
     
     
@@ -136,7 +150,7 @@
     
    
     
-        export default (props, { $, $f7, $update, $on }) => {
+        export default (props, { $, $f7, $el, $update, $on }) => {
         let determinateLoading = false;
         let infiniteLoading = false;
     
@@ -162,6 +176,14 @@
           $update();
         }
     
+
+
+
+        
+
+
+
+
         const updatePicture = (e) => {
           picture = e.target.value;
           
@@ -244,20 +266,41 @@ div.style.backgroundImage = 'url(\''+div.src+'\')';
             description = '';
             picture = '';
         }
+
+        
+       
         const save = (e) => {
-          // alert(nama);
+         
+          
+          var textEditor = $f7.textEditor.create({
+        el: $el.value.find('.text-editor-init'),
+        // define custom "hr" button
+        customButtons: {
+          hr: {
+            content: '<hr>',
+            onClick(editor, buttonEl) {
+              document.execCommand('insertHorizontalRule', false);
+            },
+          },
+        },
+        buttons: [["bold", "italic", "underline", "strikeThrough"], "hr"],
+        
+      });
+         
+alert(textEditor.value);
+//           alert(textEditor.value);
     
-          $f7.request.post("http://localhost/formlogin/aksi.php", {nama:nama, tanggal:tanggal, description:description}, function (data) {
-         //And the response from api will come like this
-         var data = JSON.parse(data); 
-              if(data.status){
-                $f7.dialog.alert("Success");
-                clear();
-                $update();
-              }else{
-                $f7.dialog.alert("Failed");
-              }
-          });
+        //   $f7.request.post("http://localhost/formlogin/aksi.php", {nama:nama, tanggal:tanggal, description:description}, function (data) {
+        //  //And the response from api will come like this
+        //  var data = JSON.parse(data); 
+        //       if(data.status){
+        //         $f7.dialog.alert("Success");
+        //         clear();
+        //         $update();
+        //       }else{
+        //         $f7.dialog.alert("Failed");
+        //       }
+        //   });
     
     
         }
@@ -265,6 +308,23 @@ div.style.backgroundImage = 'url(\''+div.src+'\')';
         
     
         const selectimage = (e) => {
+
+
+
+          var textEditor = $f7.textEditor.create({
+        el: $el.value.find('.text-editor-init'),
+        // define custom "hr" button
+        customButtons: {
+          hr: {
+            content: '<hr>',
+            onClick(editor, buttonEl) {
+              document.execCommand('insertHorizontalRule', false);
+            },
+          },
+        },
+        buttons: [["bold", "italic", "underline", "strikeThrough"], "hr"],
+      });
+
 
           // alert(nama);
     // var filePath=$('#fileUpload').val();
@@ -292,8 +352,8 @@ div.style.backgroundImage = 'url(\''+div.src+'\')';
         FData.append('files',f);    // this is main row
         FData.append('nama',nama);
         FData.append('tanggal',tanggal);
-        FData.append('description',description);
-
+        // FData.append('description',description);
+        FData.append('description',textEditor.value);
 
         
         

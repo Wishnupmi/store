@@ -9,14 +9,16 @@
             <span class="if-not-md">Back</span>
           </a>
         </div>
-        <div class="title">${currentProduct.title}</div>
+        <div class="title">${currentProduct.nama}</div>
       </div>
     </div>
     <div class="page-content">
       <img src=${currentProduct.url_image} width="100%;" height="70%" style="margin-top:-60px;border-radius: 0%;" />
-      <div class="block-title">About ${currentProduct.title}</div>
-      <div class="block block-strong">
+      <div class="block-title">About ${currentProduct.nama}</div>
+      <!-- <div class="block block-strong">
         ${currentProduct.description}
+      </div> -->
+      <div class="block block-strong" innerHTML=${currentProduct.description}>
       </div>
     </div>
   </div>
@@ -24,13 +26,18 @@
 <script>
   export default (props, { $f7route, $store }) => {
     const products = $store.getters.products;
-    const productId = $f7route.params.id;
+    
+    const productId = $f7route.params.Id;
+    
+    // alert(products.value[10].description);
     let currentProduct;
     products.value.forEach((product) => {
-      if (product.id === productId) {
+      if (product.Id === productId) {
         currentProduct = product;
       }
     });
+    // textarea to html special char / innerHTML
+    // const customHTML = products.value[10].description;
 
     return $render;
   };
