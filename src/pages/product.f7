@@ -10,21 +10,278 @@
           </a>
         </div>
         <div class="title">${currentProduct.nama}</div>
+        <!-- <div class="right">
+          <button class="button" data-target="#cart">Cart (<span class="total-count"></span>)</button><button class="clear-cart button">Clear Cart</button>
+        </div> -->
       </div>
     </div>
     <div class="page-content">
-      <img src=${currentProduct.url_image} width="100%;" height="70%" style="margin-top:-60px;border-radius: 0%;" />
+      <img src=http://localhost/cobaupload/images/${currentProduct.url_image} width="100%;" height="70%" style="margin-top:-60px;border-radius: 0%;" />
       <div class="block-title">About ${currentProduct.nama}</div>
       <!-- <div class="block block-strong">
         ${currentProduct.description}
       </div> -->
+
+   
+      
+
+
+      <!-- <div class="block-title">Custom value element</div> -->
+      <!-- <div class="list">
+        <ul>
+          <li class="item-content">
+            <div class="item-inner">
+              <div class="item-title">Apples: <span id="apples-count"></span></div>
+              <div class="item-after">
+                <div class="stepper stepper-raised stepper-small stepper-round stepper-init"  data-wraps="true" data-autorepeat="true"
+                data-autorepeat-dynamic="true" data-decimal-point="2" data-manual-input-mode="true"  data-value-el="#apples-count">
+                  <div class="stepper-button-minus"></div>
+                  <div class="stepper-input-wrap">
+                    <input type="text" value="0" min="0" max="100" step="1" />
+                  </div>
+                  <div class="stepper-button-plus"></div>
+                </div>
+
+               
+              </div>
+            </div>
+          </li>
+          <li class="item-content">
+            <div class="item-inner">
+              <div class="item-title">Oranges: <span id="oranges-count"></span></div>
+              <div class="item-after">
+                <div class="stepper stepper-raised stepper-small stepper-round stepper-init"  data-wraps="true" data-autorepeat="true"
+                data-autorepeat-dynamic="true" data-decimal-point="2" data-manual-input-mode="true"  data-value-el="#oranges-count">
+                  <div class="stepper-button-minus"></div>
+                  <div class="stepper-input-wrap">
+                    <input type="text" value="0" min="0" max="100" step="1" />
+                  </div>
+                  <div class="stepper-button-plus"></div>
+                </div> -->
+
+                <!-- <div class="stepper stepper-init stepper-small stepper-raised" data-value-el="#oranges-count">
+                  <div class="stepper-button-minus"></div>
+                  <div class="stepper-button-plus"></div>
+                </div> -->
+              <!-- </div>
+
+
+              
+            
+
+
+            </div>
+          </li>
+        </ul>
+      </div> -->
+
+      <!-- <div class="block-title">Custom value format</div>
+      <div class="list">
+        <ul>
+          <li class="item-content">
+            <div class="item-inner">
+              <div class="item-title">
+                <div class="item-header">Meeting starts in</div>
+                <span id="meeting-start-time"></span>
+              </div>
+              <div class="item-after">
+                <div class="stepper stepper-fill stepper-small stepper-raised" id="stepper-time">
+                  <div class="stepper-button-minus"></div>
+                  <div class="stepper-button-plus"></div>
+                </div>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div> -->
+
+
+  
+
       <div class="block block-strong" innerHTML=${currentProduct.description}>
       </div>
+
+      <!-- <div class="block block-strong" style="margin-top:-30px;">
+        <p><a href="#" id="buttonid" class="button button-fill color-blue">Beli</a></p>
+      </div>  -->
+
+      
+       <!-- <p><a class="button button-fill dynamic-sheet" href="#">Create Dynamic Sheet</a></p>
+       <p><a class="button button-fill sheet-open" href="#" data-sheet=".my-sheet-top">Open Top Sheet</a></p>
+       <p><a class="button button-fill sheet-open" href="#" data-sheet=".my-sheet-swipe-to-close">Swipe To
+           Close</a></p> -->
+      <div class="block block-strong" style="margin-top:-30px;">    
+       <p><a class="button button-fill color-red sheet-open" href="#" data-sheet=".my-sheet-swipe-to-step">Add to cart</a>
+       </p>
+      </div> 
+       <!-- <p><a class="button button-fill sheet-open" href="#" data-sheet=".my-sheet-push">Sheet Push</a></p> -->
+
+      
+
+       <div class="sheet-modal my-sheet">
+        <div class="toolbar">
+          <div class="toolbar-inner">
+            <div class="left"></div>
+            <div class="right"><a class="link sheet-close" href="#">Done</a></div>
+          </div>
+        </div>
+        <div class="sheet-modal-inner">
+          <div class="block">
+            <h4>Info</h4>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque ac diam ac quam euismod porta vel a
+              nunc. Quisque sodales scelerisque est, at porta justo cursus ac.</p>
+          </div>
+        </div>
+      </div>
+      <div class="sheet-modal sheet-modal-top my-sheet-top">
+        <div class="toolbar toolbar-bottom">
+          <div class="toolbar-inner">
+            <div class="left"></div>
+            <div class="right"><a class="link sheet-close" href="#">Done</a></div>
+          </div>
+        </div>
+        <div class="sheet-modal-inner">
+          <div class="block">
+            <h4>Info</h4>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque ac diam ac quam euismod porta vel a
+              nunc. Quisque sodales scelerisque est, at porta justo cursus ac.</p>
+          </div>
+        </div>
+      </div>
+      <div class="sheet-modal my-sheet-swipe-to-close" style="height:auto; --f7-sheet-bg-color: #fff;">
+        <div class="sheet-modal-inner">
+          <div class="page-content">
+            <div class="block-title block-title-large">Hello!</div>
+            <div class="block">
+              <p><b>Swipe me down to close</b></p>
+              <p>Eaque maiores ducimus, impedit unde culpa qui, explicabo accusamus, non vero corporis voluptatibus
+                similique odit ab. Quaerat quasi consectetur quidem libero? Repudiandae adipisci vel voluptatum, autem
+                libero minus dignissimos repellat.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+
+
+      <div class="sheet-modal my-sheet-swipe-to-step" style="height:100%; --f7-sheet-bg-color: #fff;border-top-right-radius: 20px 20px;border-top-left-radius: 20px 20px;">
+        
+        <div class="row resizable" style="height:5%;min-height: 15px">
+          <span class="resize-handler"></span>
+        </div>
+        <span class="resize-handler"></span> 
+
+        <div class="sheet-modal-inner">
+          
+          <div class="page-content">
+            <div class="block">
+
+                <div class="sheet-modal-swipe-step">
+                  <div class="display-flex padding justify-content-space-between align-items-center">
+                    
+                    <div style="font-size: 18px"><b>Total Bayar :</b></div>
+                    <div style="font-size: 22px"><b>Rp. 10000</b></div>
+                  </div>
+                  <div class="padding-horizontal padding-bottom">
+                    <a class="button button-large button-fill">Bayar</a>
+                    <div class="margin-top text-align-center">Geser ke atas untuk lihat detail</div>
+                  </div>
+                </div>
+                <div class="block-title block-title-medium margin-top"> Berikut Pesanan Anda:</div>
+                <div class="list no-hairlines">
+                  
+                    <ul>
+                      ${products.value.map((product) => $h`
+                        <li class="item-content">
+                          <div class="item-inner">
+                              <div class="item-title">${product.Id} ${product.nama}  <b>Rp.${product.price}</b> <span id="apples-count"></span></div>
+                              <div class="item-after">
+                                <div class="stepper stepper-raised stepper-small stepper-round stepper-init"  data-wraps="true" data-autorepeat="true"
+                                data-autorepeat-dynamic="true" data-decimal-point="2" data-manual-input-mode="true" data-value-el="#apples-count" id="stepper-time" data-name="${product.Id}">
+                                  <div class="stepper-button-minus"></div>
+                                  <div class="stepper-input-wrap">
+                                    <input type="text" value="0" min="0" max="100" step="1" />
+                                  </div>
+                                  <div class="stepper-button-plus"></div>
+                                </div>
+                
+                               
+                              </div>
+
+                              <!-- <div class="item-after text-color-black"><b>Rp.4000</b></div> -->
+                          </div>  
+                        </li>
+                      `)}
+                    </ul>
+                  
+
+                  <!-- <ul>
+                    <li class="item-content">
+                      <div class="item-inner">
+                        <div class="item-title">Item 1</div>
+                        <div class="item-after text-color-black"><b>Rp.4000</b></div>
+                      </div>
+                    </li>
+                    <li class="item-content">
+                      <div class="item-inner">
+                        <div class="item-title">Item 2</div>
+                        <div class="item-after text-color-black"><b>Rp.4000</b></div>
+                      </div>
+                    </li>
+                    <li class="item-content">
+                      <div class="item-inner">
+                        <div class="item-title">Delivery</div>
+                        <div class="item-after text-color-black"><b>Rp.2000</b></div>
+                      </div>
+                    </li>
+                  </ul> -->
+                </div>
+            </div>
+          </div>    
+        </div>
+
+      </div>
+      <div class="sheet-modal sheet-modal-push my-sheet-push">
+        <div class="toolbar">
+          <div class="toolbar-inner">
+            <div class="left"></div>
+            <div class="right">
+              <a class="link sheet-close">Close</a>
+            </div>
+          </div>
+        </div>
+        <div class="sheet-modal-inner">
+          <div class="page-content">
+            <div class="block">
+              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quae ducimus dolorum ipsa aliquid accusamus
+                perferendis laboriosam delectus numquam minima animi, libero illo in tempora harum sequi corporis alias
+                ex adipisci.</p>
+              <p>Sunt magni enim saepe quasi aspernatur delectus consectetur fugiat necessitatibus qui sed, similique
+                quis facere tempora, laudantium quae expedita ea, aperiam dolores. Aut deserunt soluta alias magnam.
+                Consequatur, nisi, enim.</p>
+              <p>Eaque maiores ducimus, impedit unde culpa qui, explicabo accusamus, non vero corporis voluptatibus
+                similique odit ab. Quaerat quasi consectetur quidem libero? Repudiandae adipisci vel voluptatum, autem
+                libero minus dignissimos repellat.</p>
+              <p>Iusto, est corrupti! Totam minus voluptas natus esse possimus nobis, delectus veniam expedita sapiente
+                ut cum reprehenderit aliquid odio amet praesentium vero temporibus obcaecati beatae aspernatur incidunt,
+                perferendis voluptates doloribus?</p>
+              <p>Illum id laborum tempore, doloribus culpa labore ex iusto odit. Quibusdam consequuntur totam nam
+                obcaecati, enim cumque nobis, accusamus, quos voluptates, voluptatibus sapiente repellendus nesciunt
+                praesentium velit ipsa illo iusto.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+
     </div>
   </div>
+  
 </template>
 <script>
-  export default (props, { $f7route, $store }) => {
+  export default (props, { $f7route, $f7, $store, $, $on }) => {
     const products = $store.getters.products;
     
     const productId = $f7route.params.Id;
@@ -38,6 +295,153 @@
     });
     // textarea to html special char / innerHTML
     // const customHTML = products.value[10].description;
+
+
+
+
+    // let stepperTime;
+    // $on('pageInit', () => {
+
+//       var stepper = $f7.stepper.create({
+//   el: '.stepper',
+//   valueEl: '#hasil',
+//   on: {
+//     change: function () {
+//       console.log('Stepper value changed'+valueEl)
+//     }
+//   }
+// })
+
+    //   stepperTime = $f7.stepper.create({
+    //     el: '#stepper-time',
+    //     valueEl: '#meeting-start-time',
+    //     min: 15, // 15 minutes min
+    //     max: 240, // 4 hours max
+    //     step: 15, // every 15 minutes
+    //     value: 15,
+    //     formatValue: function (value) {
+    //       var hours = Math.floor(value / 60);
+    //       var minutes = value - (hours * 60);
+    //       var formatted = [];
+    //       if (hours > 0) {
+    //         formatted.push(hours + ' ' + (hours > 1 ? 'hours' : 'hour'));
+    //       }
+    //       if (minutes > 0) {
+    //         formatted.push(minutes + ' minutes');
+    //       }
+    //       return formatted.join(' ');
+    //     }
+    //   })
+
+    // });
+   
+
+$on('pageInit', () => {
+  let stepperTime;
+  stepperTime = $f7.stepper.create({
+        el: '#stepper-time',
+        valueEl: '#apples-count',
+        min: 1, // 15 minutes min
+        max: 240, // 4 hours max
+        step: 1, // every 15 minutes
+        value: 1,
+        formatValue: function (value) {
+          console.log(value);
+          
+          // var hours = Math.floor(value / 60);
+          // var minutes = value - (hours * 60);
+          var formatted = [];
+          // if (hours > 0) {
+          //   formatted.push(hours + ' ' + (hours > 1 ? 'hours' : 'hour'));
+          // }
+          // if (minutes > 0) {
+            formatted.push(value);
+          // }
+          return formatted.join(' ');
+        }
+      })
+  
+
+//   var stepper = $f7.stepper.create({
+//   el: '.stepper',
+//   on: {
+//     change: function () {
+      
+//       console.log('Stepper value changed')
+//     }
+//   }
+// })
+
+      // DOM events for my-sheet sheet
+      $('.my-sheet').on('sheet:open', function (e) {
+        console.log('my-sheet open');
+      });
+      $('.my-sheet').on('sheet:opened', function (e) {
+        console.log('my-sheet opened');
+      });
+
+      // Create dynamic Sheet
+      var dynamicSheet = $f7.sheet.create({
+        content: `
+          <div class="sheet-modal">
+            <div class="toolbar">
+              <div class="toolbar-inner">
+                <div class="left"></div>
+                <div class="right">
+                  <a class="link sheet-close">Done</a>
+                </div>
+              </div>
+            </div>
+            <div class="sheet-modal-inner">
+              <div class="block">
+                <p>Sheet created dynamically.</p>
+                <p><a href="#" class="link sheet-close">Close me</a></p>
+              </div>
+            </div>
+          </div>
+        `,
+        // Events
+        on: {
+          open: function (sheet) {
+            console.log('Sheet open');
+          },
+          opened: function (sheet) {
+            console.log('Sheet opened');
+          },
+        }
+      });
+      // Events also can be assigned on instance later
+      dynamicSheet.on('close', function (sheet) {
+        console.log('Sheet close');
+      });
+      dynamicSheet.on('closed', function (sheet) {
+        console.log('Sheet closed');
+      });
+
+      // Open dynamic sheet
+      $('.dynamic-sheet').on('click', function () {
+        // Close inline sheet before
+        $f7.sheet.close('.my-sheet');
+
+        // Open dynamic sheet
+        dynamicSheet.open();
+      });
+
+      // Create swipe-to-close Sheet
+      $f7.sheet.create({
+        el: '.my-sheet-swipe-to-close',
+        swipeToClose: true,
+        backdrop: true,
+      });
+      // Create swipe-to-step Sheet
+      $f7.sheet.create({
+        el: '.my-sheet-swipe-to-step',
+        swipeToClose: true,
+        swipeToStep: true,
+        backdrop: true,
+      });
+    })
+
 
     return $render;
   };

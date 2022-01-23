@@ -62,13 +62,13 @@
               </div>
             </li>
     
-            <li class="align-top">
+            <!-- <li class="align-top">
               <div class="item-content item-input">
                 <div class="item-inner">
                   <div class="item-title item-label">Select Image</div>
                   <div class="item-input-wrap">
                     <input type="file" id="input" name="picture" value="${picture}" @input="${updatePicture}"/>
-                    <!-- <textarea placeholder="Bio" name="description" value="${description}" @input="${updateDescription}"></textarea> -->
+                    <textarea placeholder="Bio" name="description" value="${description}" @input="${updateDescription}"></textarea>
                   
                 
                    
@@ -79,7 +79,7 @@
                 </div>
                 </div>
               </div>
-            </li>
+            </li> -->
     
     
             <li class="align-top">
@@ -107,9 +107,9 @@
               <p><a href="#" id="buttonid" class="button button-fill color-red" @click=${selectimage}>Upload</a></p>
           </div> 
     
-            <div class="block block-strong">
+            <!-- <div class="block block-strong">
               <p><a href="#" class="button button-fill color-green" @click=${save}>Save</a></p>
-          </div>   
+          </div>    -->
     
     
     

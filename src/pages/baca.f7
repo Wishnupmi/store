@@ -106,7 +106,7 @@
 
     let dataJSON = new Array();
 				
-    $f7.request.get('http://localhost:3030/api/user/'+productId, (user) => {
+    $f7.request.get('http://localhost/php_restapi_nodejs/phprestapi.php?function=get_karyawan_id&Id='+productId, (user) => {
 					dataJSON = JSON.parse(user);
 					const tampil = dataJSON.response[0];
 					// var date = new Date(tampil.tanggal_lahir);

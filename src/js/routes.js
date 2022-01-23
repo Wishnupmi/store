@@ -7,6 +7,7 @@ import ProductPage from '../pages/product.f7';
 import ReadPage from '../pages/baca.f7';
 import SettingsPage from '../pages/settings.f7';
 import UploadPage from '../pages/upload.f7';
+import CartPage from '../pages/cart.f7';
 
 import DynamicRoutePage from '../pages/dynamic-route.f7';
 import RequestAndLoad from '../pages/request-and-load.f7';
@@ -45,6 +46,10 @@ var routes = [
   {
     path: '/upload/',
     component: UploadPage,
+  },
+  {
+    path: '/cart/',
+    component: CartPage,
   },
   {
     path: '/dynamic-route/blog/:blogId/post/:postId/',

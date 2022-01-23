@@ -1,0 +1,87 @@
+<template>
+    <div class="page">
+      <div class="navbar">
+        <div class="navbar-bg"></div>
+        <div class="navbar-inner sliding">
+          <div class="title">Virtual List</div>
+          <div class="subnavbar">
+            <form data-search-container=".virtual-list" data-search-item="li" data-search-in=".item-title" class="searchbar searchbar-init">
+              <div class="searchbar-inner">
+                <div class="searchbar-input-wrap">
+                  <input type="search" placeholder="Search" />
+                  <i class="searchbar-icon"></i>
+                  <span class="input-clear-button"></span>
+                </div>
+                <span class="searchbar-disable-button if-not-aurora">Cancel</span>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+      <div class="searchbar-backdrop"></div>
+      <div class="page-content">
+        <div class="list simple-list searchbar-not-found">
+          <ul>
+            <li>Nothing found</li>
+          </ul>
+        </div>
+        <div class="list virtual-list row media-list searchbar-found" style="align-content: flex-start;"></div>
+      </div>
+    </div>
+  </template>
+  <script>
+    export default (props, { $f7, $el, $theme, $on }) => {
+      let items = [];
+      for (let i = 1; i <= 7; i++) {
+        items.push({
+          title: 'Item ' + i,
+          subtitle: 'Subtitle ' + i
+        });
+      }
+      $on('pageInit', () => {
+        const virtualList = $f7.virtualList.create({
+          // List Element
+          el: $el.value.find('.virtual-list'),
+          // Pass array with items
+          cols: 2,             // tell virtual list how many columns are going to be there so that it can adjust it's height calculations correctly 
+          createUl: false,     // to disable <ul> <li> items from being rendered
+          items,
+          height: 150,
+          items,
+          // Custom search function for searchbar
+          searchAll: function (query, items) {
+            var found = [];
+            for (var i = 0; i < items.length; i++) {
+              if (items[i].title.toLowerCase().indexOf(query.toLowerCase()) >= 0 || query.trim() === '') found.push(i);
+            }
+            return found; //return array with mathced indexes
+          },
+          // List item render
+          renderItem(item) {
+            return `
+            <li>
+              <div class="swipeout-content">
+              <a href="#" class="item-link item-content">
+                <div class="item-inner">
+                  <div class="item-title-row">
+                    <div class="item-title">${item.title}</div>
+                  </div>
+                  <div class="item-subtitle">${item.subtitle}</div>
+                </div>
+              </a>
+              </div>
+              <div class="swipeout-actions-right">
+						<a href="/read/{{id}}/" class="color-blue">Read</a>
+						<a href="/update/{{id}}/" class="color-orange">Update</a>
+						<a href="#" data-confirm="Apakah Anda yakin ingin menghapus ${item.title} ?" class="color-red swipeout-delete hapus-data">Delete</a>
+						</div>
+            </li>`;
+          },
+          // Item height
+          height: $theme.ios ? 63 : ($theme.md ? 73 : 77),
+        });
+      });
+  
+      return $render;
+    }
+  </script>

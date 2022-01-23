@@ -64,6 +64,13 @@
             <span class="tabbar-label">Upload</span>
             
           </a>
+          <a href="#view-cart" class="tab-link">
+            <i class="icon f7-icons if-not-md" style="font-size: 25px;">cart</i>
+            <!-- <i class="icon material-icons if-md">cart</i> -->
+            <i class="f7-icons if-md" style="font-size: 25px;">cart</i>
+            <span class="tabbar-label">Cart</span>
+            
+          </a>
         </div>
       </div>
 
@@ -84,6 +91,11 @@
 
       <!-- Settings Upload -->
       <div id="view-upload" class="view view-init tab" data-name="upload" data-url="/upload/">
+        <!-- Settings page will be loaded here dynamically from /settings/ route -->
+      </div>
+
+      <!-- Settings Upload -->
+      <div id="view-cart" class="view view-init tab" data-name="cart" data-url="/cart/">
         <!-- Settings page will be loaded here dynamically from /settings/ route -->
       </div>
     </div>
