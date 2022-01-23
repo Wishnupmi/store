@@ -150,3 +150,4 @@ C:\AppServ\www\php_restapi_nodejs>node app.js
 1. C:\Users\wishn\downloadstore>git clone https://github.com/Wishnupmi/store.git
 2. C:\Users\wishn\downloadstore\store>npm install
 3. C:\Users\wishn\downloadstore\store>npm start
+# store2.github.io
